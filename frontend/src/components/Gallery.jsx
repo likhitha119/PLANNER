@@ -2,18 +2,18 @@ import React from 'react'
 
 const Gallery = () => {
   const images = [
-    '/assets/photos/rings on handg1.jpeg',
-    '/assets/photos/beautifulg2.jpeg',
-    '/assets/photos/maing3.jpeg',
-    '/assets/photos/potg4.jpeg',
-    '/assets/photos/holding handsg5.jpeg',
-    '/assets/photos/123g6.jpeg',
-    '/assets/photos/puppyg7.jpeg',
-    '/assets/photos/legsg8.jpeg',
-    '/assets/photos/deco.jpeg',
-    '/assets/photos/couple.jpeg',
-    '/assets/photos/Memorable.jpeg',
-    '/assets/photos/moon.jpeg'
+    'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1600402443512-86bf8ff5f0d2?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'
   ]
 
   return (
@@ -22,7 +22,7 @@ const Gallery = () => {
       <div className="box-container">
         {images.map((image, index) => (
           <div key={index} className="box">
-            <img src={image} alt={`Gallery ${index + 1}`} />
+            <img src={image} alt={`Gallery ${index + 1}`} loading="lazy" />
           </div>
         ))}
       </div>

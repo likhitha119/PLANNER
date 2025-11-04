@@ -8,19 +8,19 @@ const ReviewSlider = () => {
     {
       name: 'Leo',
       role: 'happy clients',
-      image: '/assets/photos/couple.jpeg',
+      image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
       review: 'Our corporate event was a great success, thanks to your excellent planning!'
     },
     {
       name: 'Riya',
       role: 'happy clients',
-      image: '/assets/photos/puppyg7.jpeg',
+      image: 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80',
       review: 'The event was fantastic! Everything went perfectly, and the food was delicious!'
     },
     {
       name: 'John',
       role: 'happy clients',
-      image: '/assets/photos/beautiful1.jpeg',
+      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80',
       review: 'Thank you for making my birthday so special. The decorations were beautiful!'
     }
   ]
