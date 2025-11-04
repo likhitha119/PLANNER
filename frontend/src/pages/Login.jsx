@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
+import { API_BASE } from '../config'
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ const Login = () => {
     setIsSubmitting(true)
 
     try {
-      const response = await axios.post('/api/auth/login', formData)
+      const response = await axios.post(`${API_BASE}/api/auth/login`, formData)
       const { token, user } = response.data
       
       login(token, user)

@@ -3,6 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import '../styles/payment.css'
+import { API_BASE } from '../config'
 
 const Payment = () => {
   const location = useLocation()
@@ -130,7 +131,7 @@ const Payment = () => {
 
       console.log('📤 Submitting booking:', completeBookingData)
 
-      const response = await axios.post('/api/bookings', completeBookingData)
+      const response = await axios.post(`${API_BASE}/api/bookings`, completeBookingData)
       
       console.log('✅ Booking response:', response.data)
 

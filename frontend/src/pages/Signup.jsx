@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { API_BASE } from '../config'
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ const Signup = () => {
 
     try {
       const { confirmPassword, ...submitData } = formData
-      await axios.post('/api/auth/register', submitData)
+      await axios.post(`${API_BASE}/api/auth/register`, submitData)
       
       toast.success('Registration successful! Redirecting to login...')
       // Navigate immediately after registration

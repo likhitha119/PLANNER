@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { API_BASE } from '../config'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +52,7 @@ const ContactForm = () => {
     setIsSubmitting(true)
 
     try {
-      const response = await axios.post('/api/contact', formData)
+      const response = await axios.post(`${API_BASE}/api/contact`, formData)
       
       toast.success(response.data.message)
       console.log('✅ Contact form submitted successfully:', response.data.contact)

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { API_BASE } from '../config'
 
 const ContactAdmin = () => {
   const [contacts, setContacts] = useState([])
@@ -13,7 +14,7 @@ const ContactAdmin = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await axios.get('/api/contact')
+      const response = await axios.get(`${API_BASE}/api/contact`)
       setContacts(response.data.contacts)
       console.log('✅ Contacts loaded:', response.data.count, 'messages')
     } catch (error) {
@@ -26,7 +27,7 @@ const ContactAdmin = () => {
 
   const updateStatus = async (contactId, newStatus) => {
     try {
-      await axios.patch(`/api/contact/${contactId}/status`, { status: newStatus })
+      await axios.patch(`${API_BASE}/api/contact/${contactId}/status`, { status: newStatus })
       setContacts(contacts.map(contact => 
         contact._id === contactId ? { ...contact, status: newStatus } : contact
       ))

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { API_BASE } from '../config'
 
 const BookingAdmin = () => {
   const [bookings, setBookings] = useState([])
@@ -13,7 +14,7 @@ const BookingAdmin = () => {
 
   const fetchBookings = async () => {
     try {
-      const response = await axios.get('/api/bookings/admin/all')
+      const response = await axios.get(`${API_BASE}/api/bookings/admin/all`)
       setBookings(response.data.bookings)
       console.log('✅ Bookings loaded:', response.data.count, 'bookings')
     } catch (error) {
@@ -26,7 +27,7 @@ const BookingAdmin = () => {
 
   const updateStatus = async (bookingId, newStatus) => {
     try {
-      await axios.patch(`/api/bookings/${bookingId}/status`, { status: newStatus })
+      await axios.patch(`${API_BASE}/api/bookings/${bookingId}/status`, { status: newStatus })
       setBookings(bookings.map(booking => 
         booking.bookingId === bookingId ? { ...booking, status: newStatus } : booking
       ))
