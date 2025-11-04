@@ -3,26 +3,15 @@ import SafeImg from './SafeImg'
 import { getLocalImages } from '../utils/localImages'
 
 const Gallery = () => {
-  const local = getLocalImages()
-  const images = (local && local.length) ? local : [
-    'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1600402443512-86bf8ff5f0d2?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'
-  ]
+  const images = getLocalImages()
 
   return (
     <section className="gallery" id="gallery">
       <h1 className="heading">our <span>gallery</span></h1>
       <div className="box-container">
+        {images.length === 0 && (
+          <p style={{ textAlign: 'center', opacity: 0.7 }}>No photos yet. Add files to src/assets/photos.</p>
+        )}
         {images.map((image, index) => (
           <div key={index} className="box">
             <SafeImg src={image} alt={`Gallery ${index + 1}`} loading="lazy" />

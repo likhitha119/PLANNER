@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-const FALLBACK = 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1200&q=60'
+// 1x1 transparent GIF (no external request)
+const FALLBACK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=='
 
 const SafeImg = ({ src, alt = '', className = '', ...rest }) => {
   const [current, setCurrent] = useState(src || FALLBACK)
