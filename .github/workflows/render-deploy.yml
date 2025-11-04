@@ -1,0 +1,64 @@
+name: Render Deploy
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    name: Build (frontend)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            backend/package-lock.json
+            frontend/package-lock.json
+      - name: Install dependencies
+        run: |
+          npm ci || npm install
+          cd backend && (npm ci || npm install)
+          cd ../frontend && (npm ci || npm install)
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
+  deploy:
+    name: Trigger Render Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger via Deploy Hook if provided
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Using Render deploy hook"
+            curl -fsSL -X POST "$RENDER_DEPLOY_HOOK"
+          else
+            echo "No deploy hook found; skipping this step"
+          fi
+      - name: Trigger via Render API (fallback)
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            if [ -z "$RENDER_API_KEY" ] || [ -z "$RENDER_SERVICE_ID" ]; then
+              echo "RENDER_API_KEY or RENDER_SERVICE_ID not set; cannot trigger deploy" && exit 1
+            fi
+            echo "Triggering Render deploy via API for service $RENDER_SERVICE_ID"
+            curl -fsSL -X POST \
+              -H "Authorization: Bearer $RENDER_API_KEY" \
+              -H "Content-Type: application/json" \
+              "https://api.render.com/v1/services/$RENDER_SERVICE_ID/deploys" \
+              -d '{}' >/dev/null
+          fi
