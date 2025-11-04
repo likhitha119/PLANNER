@@ -4,9 +4,11 @@ import { EffectCoverflow, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import SafeImg from './SafeImg'
+import { getLocalImages } from '../utils/localImages'
 
 const HeroSlider = () => {
-  const images = [
+  const local = getLocalImages()
+  const images = (local && local.length ? local : [
     'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
     'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=80',
     'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80',
@@ -17,7 +19,7 @@ const HeroSlider = () => {
     'https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&w=1600&q=80',
     'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=80',
     'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=1600&q=80'
-  ]
+  ])
 
   return (
     <section className="home" id="home">

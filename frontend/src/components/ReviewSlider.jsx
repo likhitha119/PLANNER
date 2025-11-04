@@ -3,25 +3,27 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import SafeImg from './SafeImg'
+import { getLocalImages } from '../utils/localImages'
 
 const ReviewSlider = () => {
+  const local = getLocalImages()
   const reviews = [
     {
       name: 'Leo',
       role: 'happy clients',
-      image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
+      image: local[1] || 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80',
       review: 'Our corporate event was a great success, thanks to your excellent planning!'
     },
     {
       name: 'Riya',
       role: 'happy clients',
-      image: 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80',
+      image: local[2] || 'https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=800&q=80',
       review: 'The event was fantastic! Everything went perfectly, and the food was delicious!'
     },
     {
       name: 'John',
       role: 'happy clients',
-      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80',
+      image: local[3] || 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80',
       review: 'Thank you for making my birthday so special. The decorations were beautiful!'
     }
   ]
