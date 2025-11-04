@@ -2,6 +2,7 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
+import SafeImg from './SafeImg'
 
 const ReviewSlider = () => {
   const reviews = [
@@ -49,7 +50,7 @@ const ReviewSlider = () => {
           <SwiperSlide key={index} className="box">
             <i className="fas fa-quote-right"></i>
             <div className="user">
-              <img src={review.image} alt={review.name} />
+              <SafeImg src={review.image} alt={review.name} />
               <div className="user-info">
                 <h3>{review.name}</h3>
                 <span>{review.role}</span>

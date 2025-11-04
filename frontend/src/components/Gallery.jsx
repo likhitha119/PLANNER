@@ -1,4 +1,5 @@
 import React from 'react'
+import SafeImg from './SafeImg'
 
 const Gallery = () => {
   const images = [
@@ -22,7 +23,7 @@ const Gallery = () => {
       <div className="box-container">
         {images.map((image, index) => (
           <div key={index} className="box">
-            <img src={image} alt={`Gallery ${index + 1}`} loading="lazy" />
+            <SafeImg src={image} alt={`Gallery ${index + 1}`} loading="lazy" />
           </div>
         ))}
       </div>

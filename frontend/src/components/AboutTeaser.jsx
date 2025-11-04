@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import SafeImg from './SafeImg'
 
 const AboutTeaser = () => {
   return (
@@ -7,7 +8,7 @@ const AboutTeaser = () => {
       <h1 className="heading"><span>about</span> us</h1>
       <div className="row">
         <div className="image">
-<img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1200&q=80" alt="About us" />
+<SafeImg src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1200&q=80" alt="About us" />
         </div>
         <div className="content">
           <h3>We will give you a very special celebration</h3>
