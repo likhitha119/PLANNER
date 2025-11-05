@@ -23,7 +23,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    // Client-side validation
+    
     if (!formData.name.trim() || formData.name.length < 2) {
       toast.error('Name must be at least 2 characters')
       return
@@ -75,7 +75,7 @@ const ContactForm = () => {
       console.error('Contact form error:', error)
       
       if (error.response?.data?.errors) {
-        // Handle validation errors
+        
         const validationErrors = error.response.data.errors
         validationErrors.forEach(err => {
           toast.error(err.msg)
