@@ -2,6 +2,9 @@
 
 A complete responsive wedding planner website built with React frontend and Node.js backend with MongoDB Atlas database.
 
+
+Demo link: https://planner-fyv2.vercel.app/
+
 ## 🚀 Features
 
 ### Frontend (React)
