@@ -25,7 +25,7 @@ const Footer = () => {
         <div className="box">
           <h3>contact info</h3>
           <a href="#"><i className="fas fa-phone"></i> +91 7569094287</a>
-          <a href="#"><i className="fas fa-phone"></i> +91 7569094287</a>
+          <a href="#"><i className="fas fa-phone"></i> +91 9876543210</a>
           <a href="#"><i className="fas fa-envelope"></i> likhithatalagapu7@gmail.com</a>
           <a href="#"><i className="fas fa-envelope"></i> abc@gmail.com</a>
           <a href="#"><i className="fas fa-map-marker-alt"></i> Hyderabad, india - 400104</a>
@@ -38,7 +38,7 @@ const Footer = () => {
           <a href="#"><i className="fab fa-linkedin"></i> linkedin</a>
         </div>
       </div>
-      <div className="credit">created by <span>Batch 11</span> | all rights reserved</div>
+      <div className="credit">created by <span>LIKHITHA</span> | all rights reserved</div>
     </section>
   )
 }
